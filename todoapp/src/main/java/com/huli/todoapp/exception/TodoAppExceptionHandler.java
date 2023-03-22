@@ -15,8 +15,19 @@ public class TodoAppExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     public ResponseEntity<Object> handleNoHandlerFoundException (NoHandlerFoundException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request){
-        String message = HttpStatus.NOT_FOUND.value()==404 ? "Page not found@" : ex.getMessage();
-
+        String message;
+        switch (status.value()) {
+            case 401:
+                message="Unauthorized!";
+                break;
+            case 404:
+                message="Page not found!";
+                break;
+            default:
+                message=ex.getMessage();
+        }
+//        String message = HttpStatus.NOT_FOUND.value()==404 ? "Page not found!" : ex.getMessage();
+//        message = HttpStatus.UNAUTHORIZED.value()==401 ? "Unauthorized!" : ex.getMessage();
         return new ResponseEntity<>(new ErrorDTO(message, HttpStatus.NOT_FOUND.value()),HttpStatus.NOT_FOUND);
     }
 
