@@ -1,5 +1,6 @@
 package com.huli.todoapp.model.entity;
 
+import com.huli.todoapp.model.DTO.UserDto;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,10 +18,11 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, String role) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.role = role;
     }
 
     public Long getId() {
