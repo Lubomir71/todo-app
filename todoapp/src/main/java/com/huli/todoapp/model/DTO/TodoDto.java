@@ -1,5 +1,7 @@
 package com.huli.todoapp.model.DTO;
 
+import com.huli.todoapp.model.entity.Todo;
+
 public class TodoDto {
     private Long id;
     private String description;
@@ -12,11 +14,12 @@ public class TodoDto {
         this.description = description;
     }
 
-    public TodoDto(Long id, String description, Boolean done) {
-        this.id = id;
-        this.description = description;
-        this.done = done;
+    public TodoDto(Todo todo) {
+        this.id = todo.getId();
+        this.description = todo.getDescription();
+        this.done = todo.getDone();
     }
+
 
     public Long getId() {
         return id;

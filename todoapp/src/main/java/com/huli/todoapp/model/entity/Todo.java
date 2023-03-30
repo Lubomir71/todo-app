@@ -14,7 +14,11 @@ public class Todo {
     @JoinColumn(name = "user_id")
     private User user;
 
-
+    public Todo(String description, Boolean done, User user) {
+        this.description = description;
+        this.done = done;
+        this.user = user;
+    }
 
     public User getUser() {
         return user;
@@ -30,5 +34,21 @@ public class Todo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getDone() {
+        return done;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
     }
 }
