@@ -14,6 +14,9 @@ public class Todo {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Todo() {
+    }
+
     public Todo(String description, Boolean done, User user) {
         this.description = description;
         this.done = done;
