@@ -3,6 +3,8 @@ package com.huli.todoapp.model.entity;
 import com.huli.todoapp.model.DTO.UserDto;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "todoapp_user")
 public class User {
@@ -14,6 +16,8 @@ public class User {
     private String password;
     private String email;
     private String role;
+    @OneToMany(mappedBy = "user")
+    private Set<Todo> todos;
 
     public User() {
     }
@@ -59,5 +63,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Set<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(Set<Todo> todos) {
+        this.todos = todos;
     }
 }
