@@ -30,3 +30,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jar {
+    enabled=false
+    manifest {
+        attributes(
+                'Main-Class': 'com.huli.todoapp.TodoappApplication'
+        )
+    }
+}
