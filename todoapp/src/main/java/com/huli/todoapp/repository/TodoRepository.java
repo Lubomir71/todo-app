@@ -10,4 +10,5 @@ public interface TodoRepository extends JpaRepository<Todo,Long> {
 
     List<Todo> getAllByUser(User user);
     Todo getTodoById(Long id);
+    Todo getTopByOrderByIdDesc();
 }
